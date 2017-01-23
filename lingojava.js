@@ -1,4 +1,16 @@
 
+start.setAttribute("onClick", "javascript:startspel();");
+document.getElementById('controleren').style.visibility = 'hidden';
+document.getElementById('row1').style.visibility = 'hidden';
+document.getElementById('row2').style.visibility = 'hidden';
+document.getElementById('row3').style.visibility = 'hidden';
+document.getElementById('row4').style.visibility = 'hidden';
+document.getElementById('row5').style.visibility = 'hidden';
+
+
+
+
+//var words = 
 function test() {
 	var words = [
 	"appel",
@@ -483,10 +495,20 @@ function test() {
 	alert(words[Math.round(Math.random()*(words.length-1))]);
 	
 }
-function pogining1(){
+function startspel(){
+document.getElementById('start').style.visibility = 'hidden';
+document.getElementById('controleren').style.visibility = 'visible';
+document.getElementById('row1').style.visibility = 'visible';
+document.getElementById('row2').style.visibility = 'visible';
+document.getElementById('row3').style.visibility = 'visible';
+document.getElementById('row4').style.visibility = 'visible';
+document.getElementById('row5').style.visibility = 'visible';
+	
 	
 }
-
+function woordkiezen(){
+	
+}
 
 
 /*document.getElementById("demo").innerHTML = words[Math.round(Math.random()*(words.length-1))];*/
