@@ -488,31 +488,6 @@ var words = [
 "zeeen"];
 
 
-
-function startspel(){
-	debugger;
-	gekozenwoord = words[Math.round(Math.random()*(words.length-1))];
-	alert(gekozenwoord)
-	document.getElementById('1_1').value = gekozenwoord.charAt(0);
-	document.getElementById('start').style.visibility = 'hidden';
-	document.getElementById('controleren').style.visibility = 'visible';
-	document.getElementById('row1').style.visibility = 'visible';
-	document.getElementById('row2').style.visibility = 'visible';
-	document.getElementById('row3').style.visibility = 'visible';
-	document.getElementById('row4').style.visibility = 'visible';
-	document.getElementById('row5').style.visibility = 'visible';
-
-	
-	
-}
-function controleren(controlenrij){
-
-}
-
-//function woordkiezen(){
-	//document.getElementById('rows').innerHTML = words[Math.round(Math.random()*(words.length-1))];
-	
-//}
-
-
-//document.getElementById("demo").innerHTML = words[Math.round(Math.random()*(words.length-1))];
+/*function woordkiezen(){
+		document.getElementById('rows').innerHTML = words[Math.round(Math.random()*(words.length-1))];
+		document.getElementById("demo").innerHTML = words[Math.round(Math.random()*(words.length-1))];*/
