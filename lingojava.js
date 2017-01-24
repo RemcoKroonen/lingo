@@ -6,6 +6,7 @@ document.getElementById('row3').style.visibility = 'hidden';
 document.getElementById('row4').style.visibility = 'hidden';
 document.getElementById('row5').style.visibility = 'hidden';
 var gekozenwoord = "";
+var rij = 0;
 var words = [
 "appel",
 "aldus",
@@ -492,9 +493,11 @@ function startspel(){
 	debugger;
 	gekozenwoord = words[Math.round(Math.random()*(words.length-1))];
 	alert(gekozenwoord)
-	document.getElementById('1_1').value = gekozenwoord.charAt(0);
+	document.getElementById('0_0').value = gekozenwoord.charAt(0);
 	document.getElementById('start').style.visibility = 'hidden';
 	document.getElementById('controleren').style.visibility = 'visible';
+	//document.getElementById('controleren').onClick = "javascript:controleren();";
+	controleren.setAttribute("onClick", "javascript:controleenwoord();");
 	document.getElementById('row1').style.visibility = 'visible';
 	document.getElementById('row2').style.visibility = 'visible';
 	document.getElementById('row3').style.visibility = 'visible';
@@ -504,8 +507,21 @@ function startspel(){
 	
 	
 }
-function controleren(controlenrij){
+function controleenwoord(){
+	alert('controlen')
+	for (var teller = 0; teller <= 4; teller++) {
+		debugger;
+		if (gekozenwoord.charAt(teller) == document.getElementById(rij.toString()+"_"+teller.toString()).value) {
+			document.getElementById(rij.toString()+"_"+teller.toString()).style.backgroundColor = "green";
+		}
+		else{
+			
+		}
+		//alert(document.getElementById(rij.toString()+"_"+teller.toString()).value);
+		//document.getElementById(rij.toString()+"_"+teller.toString()).style.backgroundColor = "green";
+		//alert(gekozenwoord.charAt(teller));
 
+	}
 }
 
 
