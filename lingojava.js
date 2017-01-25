@@ -512,16 +512,23 @@ function controleenwoord(){
 	for (var teller = 0; teller <= 4; teller++) {
 		debugger;
 		if (gekozenwoord.charAt(teller) == document.getElementById(rij.toString()+"_"+teller.toString()).value) {
-			document.getElementById(rij.toString()+"_"+teller.toString()).style.backgroundColor = "green";
+			document.getElementById(rij.toString()+"_"+teller.toString()).style.backgroundColor = "red";
+			document.getElementById(((rij +1).toString())+"_"+teller.toString()).value = document.getElementById(rij.toString()+"_"+teller.toString()).value	
 		}
-		else{
+		else {
+			if (gekozenwoord.includes(document.getElementById(rij.toString()+"_"+teller.toString()).value)) {
+				document.getElementById(rij.toString()+"_"+teller.toString()).style.backgroundColor = "yellow";
+			}
+
 			
 		}
+		
 		//alert(document.getElementById(rij.toString()+"_"+teller.toString()).value);
 		//document.getElementById(rij.toString()+"_"+teller.toString()).style.backgroundColor = "green";
 		//alert(gekozenwoord.charAt(teller));
 
 	}
+	rij++;
 }
 
 
