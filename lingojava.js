@@ -504,16 +504,18 @@ function startspel(){
 	document.getElementById('row4').style.visibility = 'visible';
 	document.getElementById('row5').style.visibility = 'visible';
 
-	
+
 	
 }
 function controleenwoord(){
 	alert('controlen')
+	var lettercontrol = 0;
 	for (var teller = 0; teller <= 4; teller++) {
 		debugger;
 		if (gekozenwoord.charAt(teller) == document.getElementById(rij.toString()+"_"+teller.toString()).value) {
 			document.getElementById(rij.toString()+"_"+teller.toString()).style.backgroundColor = "red";
-			document.getElementById(((rij +1).toString())+"_"+teller.toString()).value = document.getElementById(rij.toString()+"_"+teller.toString()).value	
+			document.getElementById(((rij +1).toString())+"_"+teller.toString()).value = document.getElementById(rij.toString()+"_"+teller.toString()).value;
+			lettercontrol++;	
 		}
 		else {
 			if (gekozenwoord.includes(document.getElementById(rij.toString()+"_"+teller.toString()).value)) {
@@ -529,6 +531,7 @@ function controleenwoord(){
 
 	}
 	rij++;
+	if (lettercontrol == 5) {alert('woord is goed')}
 }
 
 
