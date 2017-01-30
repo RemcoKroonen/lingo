@@ -508,33 +508,66 @@ function startspel(){
 	
 }
 function controleenwoord(){
-	alert('controlen')
-	var lettercontrol = 0;
-	for (var teller = 0; teller <= 4; teller++) {
-		debugger;
-		if (gekozenwoord.charAt(teller) == document.getElementById(rij.toString()+"_"+teller.toString()).value) {
-			document.getElementById(rij.toString()+"_"+teller.toString()).style.backgroundColor = "red";
-			document.getElementById(((rij +1).toString())+"_"+teller.toString()).value = document.getElementById(rij.toString()+"_"+teller.toString()).value;
-			lettercontrol++;	
-		}
-		else {
-			if (gekozenwoord.includes(document.getElementById(rij.toString()+"_"+teller.toString()).value)) {
-				document.getElementById(rij.toString()+"_"+teller.toString()).style.backgroundColor = "yellow";
-			}
+	debugger;
+	alert('controlen');
+	if (iswoordgoed()) {
+		for (var teller = 0; teller <= 4; teller++) {
 
+
+			if (gekozenwoord.charAt(teller) == document.getElementById(rij.toString()+"_"+teller.toString()).value) {
+				document.getElementById(rij.toString()+"_"+teller.toString()).style.backgroundColor = "red";
+			}
 			
 		}
-		
-		//alert(document.getElementById(rij.toString()+"_"+teller.toString()).value);
-		//document.getElementById(rij.toString()+"_"+teller.toString()).style.backgroundColor = "green";
-		//alert(gekozenwoord.charAt(teller));
-
+		alert('woord is goed');
 	}
-	rij++;
-	if (lettercontrol == 5) {alert('woord is goed')}
+	else {
+
+
+		for (var teller = 0; teller <= 4; teller++) {
+			
+
+			if (gekozenwoord.charAt(teller) == document.getElementById(rij.toString()+"_"+teller.toString()).value) {
+				document.getElementById(rij.toString()+"_"+teller.toString()).style.backgroundColor = "red";
+				if (rij < 4) {
+					document.getElementById(((rij +1).toString())+"_"+teller.toString()).value = document.getElementById(rij.toString()+"_"+teller.toString()).value;
+				}
+			}
+			else {
+				if (gekozenwoord.includes(document.getElementById(rij.toString()+"_"+teller.toString()).value)) {
+					document.getElementById(rij.toString()+"_"+teller.toString()).style.backgroundColor = "yellow";
+
+				}
+
+
+			}
+
+		}
+		if (rij < 4) {
+			rij++;
+		}
+		else{
+			alert('game over')
+		}
+	}
 }
 
 
-/*function woordkiezen(){
-		document.getElementById('rows').innerHTML = words[Math.round(Math.random()*(words.length-1))];
-		document.getElementById("demo").innerHTML = words[Math.round(Math.random()*(words.length-1))];*/
+function iswoordgoed(){
+	var lettercontrol = 0;
+	debugger;
+	for (var teller = 0; teller <= 4; teller++) {
+
+		if (gekozenwoord.charAt(teller) == document.getElementById(rij.toString()+"_"+teller.toString()).value) {
+			lettercontrol++;	
+		}
+	}
+
+
+	if (lettercontrol == 5) {
+		return  true;
+	}
+	else {
+		return false;
+	}
+}
