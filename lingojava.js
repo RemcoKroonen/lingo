@@ -5,6 +5,7 @@ document.getElementById('row2').style.visibility = 'hidden';
 document.getElementById('row3').style.visibility = 'hidden';
 document.getElementById('row4').style.visibility = 'hidden';
 document.getElementById('row5').style.visibility = 'hidden';
+document.getElementById('opnieuw').style.visibility = 'hidden';
 var gekozenwoord = "";
 var rij = 0;
 var words = [
@@ -495,6 +496,7 @@ function startspel(){
 	alert(gekozenwoord)
 	document.getElementById('0_0').value = gekozenwoord.charAt(0);
 	document.getElementById('start').style.visibility = 'hidden';
+	document.getElementById('opnieuw').style.visibility = 'hidden';
 	document.getElementById('controleren').style.visibility = 'visible';
 	//document.getElementById('controleren').onClick = "javascript:controleren();";
 	controleren.setAttribute("onClick", "javascript:controleenwoord();");
@@ -548,6 +550,17 @@ function controleenwoord(){
 		}
 		else{
 			alert('game over')
+			document.getElementById('controleren').style.visibility = 'hidden';
+			document.getElementById('row1').style.visibility = 'hidden';
+			document.getElementById('row2').style.visibility = 'hidden';
+			document.getElementById('row3').style.visibility = 'hidden';
+			document.getElementById('row4').style.visibility = 'hidden';
+			document.getElementById('row5').style.visibility = 'hidden';
+			document.getElementById('opnieuw').style.visibility = 'visible';
+			opnieuw.setAttribute("onClick", "javascript:startspel();");
+			(resestinput());
+
+
 		}
 	}
 }
@@ -571,3 +584,10 @@ function iswoordgoed(){
 		return false;
 	}
 }
+/*function resestinput(){
+	document.getElementById("row5").reset();
+	document.getElementById("row4").reset();
+	document.getElementById("row3").reset();
+	document.getElementById("row2").reset();
+	document.getElementById("row1").reset();
+}*/
