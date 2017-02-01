@@ -557,8 +557,15 @@ function controleenwoord(){
 			document.getElementById('row4').style.visibility = 'hidden';
 			document.getElementById('row5').style.visibility = 'hidden';
 			document.getElementById('opnieuw').style.visibility = 'visible';
+			debugger;
+			document.getElementById("rijen").reset();
+			for (var rijteller = 0; rijteller <= 4; rijteller++) {
+				for (var kolomteller = 0; kolomteller <=4; kolomteller++) {
+					document.getElementById(rijteller.toString()+"_"+kolomteller.toString()).style.backgroundColor = "white";
+				}
+			}
 			opnieuw.setAttribute("onClick", "javascript:startspel();");
-			(resestinput());
+			
 
 
 		}
