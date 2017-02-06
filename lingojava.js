@@ -1,5 +1,6 @@
 start.setAttribute("onClick", "javascript:startspel();");
 document.getElementById('controleren').style.visibility = 'hidden';
+document.getElementById('nieuwwoord').style.visibility = 'hidden';
 document.getElementById('row1').style.visibility = 'hidden';
 document.getElementById('row2').style.visibility = 'hidden';
 document.getElementById('row3').style.visibility = 'hidden';
@@ -493,10 +494,10 @@ var words = [
 function startspel(){
 	debugger;
 	gekozenwoord = words[Math.round(Math.random()*(words.length-1))];
-	alert(gekozenwoord)
 	document.getElementById('0_0').value = gekozenwoord.charAt(0);
 	document.getElementById('start').style.visibility = 'hidden';
 	document.getElementById('opnieuw').style.visibility = 'hidden';
+	document.getElementById('nieuwwoord').style.visibility = 'hidden';
 	document.getElementById('controleren').style.visibility = 'visible';
 	//document.getElementById('controleren').onClick = "javascript:controleren();";
 	controleren.setAttribute("onClick", "javascript:controleenwoord();");
@@ -511,7 +512,7 @@ function startspel(){
 }
 function controleenwoord(){
 	debugger;
-	alert('controlen');
+	
 	if (iswoordgoed()) {
 		for (var teller = 0; teller <= 4; teller++) {
 
@@ -522,6 +523,22 @@ function controleenwoord(){
 			
 		}
 		alert('woord is goed');
+		document.getElementById('controleren').style.visibility = 'hidden';
+			document.getElementById('row1').style.visibility = 'hidden';
+			document.getElementById('row2').style.visibility = 'hidden';
+			document.getElementById('row3').style.visibility = 'hidden';
+			document.getElementById('row4').style.visibility = 'hidden';
+			document.getElementById('row5').style.visibility = 'hidden';
+			document.getElementById('opnieuw').style.visibility = 'hidden';
+			document.getElementById('nieuwwoord').style.visibility = 'visible';
+			debugger;
+			document.getElementById("rijen").reset();
+			for (var rijteller = 0; rijteller <= 4; rijteller++) {
+				for (var kolomteller = 0; kolomteller <=4; kolomteller++) {
+					document.getElementById(rijteller.toString()+"_"+kolomteller.toString()).style.backgroundColor = "white";
+				}
+			}
+			nieuwwoord.setAttribute("onClick", "javascript:startspel();");
 	}
 	else {
 
@@ -550,6 +567,7 @@ function controleenwoord(){
 		}
 		else{
 			alert('game over')
+			alert('het woord was: ' + gekozenwoord);
 			document.getElementById('controleren').style.visibility = 'hidden';
 			document.getElementById('row1').style.visibility = 'hidden';
 			document.getElementById('row2').style.visibility = 'hidden';
